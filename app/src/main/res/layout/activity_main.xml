@@ -356,6 +356,13 @@
                 android:textSize="14sp" />
 
         </LinearLayout>
+        <Button
+            android:id="@+id/Adminlogin"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginLeft="5dp"
+            android:text="Admin"
+            />
 
 
         <!-- ================= FOOTER ================= -->
@@ -366,7 +373,8 @@
             android:background="#123D16"
             android:gravity="center"
             android:orientation="vertical"
-            android:padding="25dp">
+            android:padding="25dp"
+            android:layout_marginTop="5dp">
 
             <TextView
                 android:layout_width="wrap_content"
