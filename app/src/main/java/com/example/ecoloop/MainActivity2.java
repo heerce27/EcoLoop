@@ -1,5 +1,6 @@
 package com.example.ecoloop;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -7,34 +8,34 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
-import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 
 public class MainActivity2 extends AppCompatActivity {
 
-    // --------------------------------------------------
-    // LOGIN FIELDS
-    // --------------------------------------------------
+    // =========================================================
+    // LOGIN VIEWS
+    // =========================================================
 
     private EditText loginName;
     private EditText loginPassword;
-    private Button btnLogin;
-    private TextView btnGoRegister;
 
-    // --------------------------------------------------
-    // REGISTER FIELDS
-    // --------------------------------------------------
+    private Button btnLogin;
+    private android.widget.TextView btnGoRegister;
+
+
+    // =========================================================
+    // REGISTER VIEWS
+    // =========================================================
 
     private EditText registerName;
     private EditText registerMobile;
@@ -42,20 +43,23 @@ public class MainActivity2 extends AppCompatActivity {
     private EditText registerPassword;
 
     private Button btnRegister;
-    private TextView btnGoLogin;
+    private android.widget.TextView btnGoLogin;
 
-    // --------------------------------------------------
-    // FORM CONTAINERS
-    // --------------------------------------------------
 
-    private View loginForm;
-    private View registerForm;
+    // =========================================================
+    // FORMS
+    // =========================================================
 
-    // --------------------------------------------------
+    private LinearLayout loginForm;
+    private LinearLayout registerForm;
+
+
+    // =========================================================
     // DATABASE
-    // --------------------------------------------------
+    // =========================================================
 
     private SQLiteDatabase database;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,52 +68,46 @@ public class MainActivity2 extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
 
         initializeViews();
+
         createDatabase();
+
         setupListeners();
     }
 
-    // ==================================================
+
+    // =========================================================
     // INITIALIZE VIEWS
-    // ==================================================
+    // =========================================================
 
     private void initializeViews() {
 
-        // ---------------- LOGIN ----------------
-
+        // Login
         loginName = findViewById(R.id.loginName);
-
         loginPassword = findViewById(R.id.loginPassword);
 
         btnLogin = findViewById(R.id.btnLogin);
-
         btnGoRegister = findViewById(R.id.btnGoRegister);
 
 
-        // ---------------- REGISTER ----------------
-
+        // Register
         registerName = findViewById(R.id.registerName);
-
         registerMobile = findViewById(R.id.registerMobile);
-
         registerEmail = findViewById(R.id.registerEmail);
-
         registerPassword = findViewById(R.id.registerPassword);
 
         btnRegister = findViewById(R.id.btnRegister);
-
         btnGoLogin = findViewById(R.id.btnGoLogin);
 
 
-        // ---------------- FORMS ----------------
-
+        // Forms
         loginForm = findViewById(R.id.loginForm);
-
         registerForm = findViewById(R.id.registerForm);
     }
 
-    // ==================================================
+
+    // =========================================================
     // CREATE DATABASE
-    // ==================================================
+    // =========================================================
 
     private void createDatabase() {
 
@@ -119,103 +117,106 @@ public class MainActivity2 extends AppCompatActivity {
                 null
         );
 
-        /*
-         * users table
-         *
-         * id       -> Automatically generated unique ID
-         * name     -> User name
-         * mobile   -> Mobile number
-         * email    -> Email address
-         * password -> Hashed password
-         */
-
         database.execSQL(
                 "CREATE TABLE IF NOT EXISTS users (" +
+
                         "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+
                         "name TEXT UNIQUE," +
+
                         "mobile TEXT," +
+
                         "email TEXT," +
-                        "password TEXT)"
+
+                        "password TEXT," +
+
+                        "carbonFootprint REAL DEFAULT 0," +
+
+                        "earnedPoints INTEGER DEFAULT 0" +
+
+                        ")"
         );
     }
 
-    // ==================================================
-    // BUTTON LISTENERS
-    // ==================================================
+
+    // =========================================================
+    // LISTENERS
+    // =========================================================
 
     private void setupListeners() {
 
-        // ---------------- GO TO REGISTER ----------------
-
+        // Go to Register
         btnGoRegister.setOnClickListener(v -> {
+
             flipToRegister();
+
         });
 
 
-        // ---------------- GO TO LOGIN ----------------
-
+        // Go back to Login
         btnGoLogin.setOnClickListener(v -> {
+
             flipToLogin();
+
         });
 
 
-        // ---------------- REGISTER ----------------
-
+        // Register
         btnRegister.setOnClickListener(v -> {
+
             registerUser();
+
         });
 
 
-        // ---------------- LOGIN ----------------
-
+        // Login
         btnLogin.setOnClickListener(v -> {
+
             loginUser();
+
         });
     }
 
-    // ==================================================
+
+    // =========================================================
     // REGISTER USER
-    // ==================================================
+    // =========================================================
 
     private void registerUser() {
 
-        String name =
-                registerName.getText().toString().trim();
+        String name = registerName.getText()
+                .toString()
+                .trim();
 
-        String mobile =
-                registerMobile.getText().toString().trim();
+        String mobile = registerMobile.getText()
+                .toString()
+                .trim();
 
-        String email =
-                registerEmail.getText().toString().trim();
+        String email = registerEmail.getText()
+                .toString()
+                .trim();
 
-        String password =
-                registerPassword.getText().toString();
+        String password = registerPassword.getText()
+                .toString()
+                .trim();
 
 
-        // --------------------------------------------------
-        // NAME VALIDATION
-        // --------------------------------------------------
+        // =====================================================
+        // VALIDATION
+        // =====================================================
 
         if (TextUtils.isEmpty(name)) {
 
             registerName.setError("Enter your name");
-
             registerName.requestFocus();
 
             return;
         }
 
 
-        // --------------------------------------------------
-        // MOBILE VALIDATION
-        // --------------------------------------------------
-
         if (TextUtils.isEmpty(mobile)) {
 
-            registerMobile.setError(
-                    "Enter mobile number"
-            );
-
+            registerMobile.setError("Enter mobile number");
             registerMobile.requestFocus();
 
             return;
@@ -225,7 +226,7 @@ public class MainActivity2 extends AppCompatActivity {
         if (mobile.length() != 10) {
 
             registerMobile.setError(
-                    "Enter valid 10 digit mobile number"
+                    "Mobile number must be 10 digits"
             );
 
             registerMobile.requestFocus();
@@ -234,14 +235,21 @@ public class MainActivity2 extends AppCompatActivity {
         }
 
 
-        // --------------------------------------------------
-        // EMAIL VALIDATION
-        // --------------------------------------------------
-
         if (TextUtils.isEmpty(email)) {
 
+            registerEmail.setError("Enter email");
+            registerEmail.requestFocus();
+
+            return;
+        }
+
+
+        if (!Patterns.EMAIL_ADDRESS
+                .matcher(email)
+                .matches()) {
+
             registerEmail.setError(
-                    "Enter email address"
+                    "Enter a valid email"
             );
 
             registerEmail.requestFocus();
@@ -249,22 +257,6 @@ public class MainActivity2 extends AppCompatActivity {
             return;
         }
 
-
-        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-
-            registerEmail.setError(
-                    "Enter valid email address"
-            );
-
-            registerEmail.requestFocus();
-
-            return;
-        }
-
-
-        // --------------------------------------------------
-        // PASSWORD VALIDATION
-        // --------------------------------------------------
 
         if (TextUtils.isEmpty(password)) {
 
@@ -281,7 +273,7 @@ public class MainActivity2 extends AppCompatActivity {
         if (password.length() < 6) {
 
             registerPassword.setError(
-                    "Password must be at least 6 characters"
+                    "Password must contain at least 6 characters"
             );
 
             registerPassword.requestFocus();
@@ -290,12 +282,12 @@ public class MainActivity2 extends AppCompatActivity {
         }
 
 
-        // --------------------------------------------------
+        // =====================================================
         // CHECK EXISTING USER
-        // --------------------------------------------------
+        // =====================================================
 
         Cursor cursor = database.rawQuery(
-                "SELECT * FROM users WHERE name = ?",
+                "SELECT id FROM users WHERE name = ?",
                 new String[]{name}
         );
 
@@ -306,7 +298,7 @@ public class MainActivity2 extends AppCompatActivity {
 
             Toast.makeText(
                     this,
-                    "User already registered!",
+                    "Name already registered!",
                     Toast.LENGTH_SHORT
             ).show();
 
@@ -316,107 +308,107 @@ public class MainActivity2 extends AppCompatActivity {
         cursor.close();
 
 
-        // --------------------------------------------------
+        // =====================================================
         // HASH PASSWORD
-        // --------------------------------------------------
+        // =====================================================
 
-        String hashedPassword =
-                hashPassword(password);
+        String hashedPassword = hashPassword(password);
 
 
-        // --------------------------------------------------
+        // =====================================================
         // INSERT USER
-        // --------------------------------------------------
+        // =====================================================
 
-        database.execSQL(
-                "INSERT INTO users " +
-                        "(name, mobile, email, password) " +
-                        "VALUES (?, ?, ?, ?)",
+        ContentValues values = new ContentValues();
 
-                new Object[]{
-                        name,
-                        mobile,
-                        email,
-                        hashedPassword
-                }
+        values.put("name", name);
+        values.put("mobile", mobile);
+        values.put("email", email);
+        values.put("password", hashedPassword);
+
+        // Initial values
+        values.put("carbonFootprint", 0.0);
+        values.put("earnedPoints", 0);
+
+
+        long userId = database.insert(
+                "users",
+                null,
+                values
         );
 
 
-        // --------------------------------------------------
-        // SUCCESS MESSAGE
-        // --------------------------------------------------
+        if (userId == -1) {
+
+            Toast.makeText(
+                    this,
+                    "Registration failed!",
+                    Toast.LENGTH_SHORT
+            ).show();
+
+            return;
+        }
+
+
+        // =====================================================
+        // REGISTRATION SUCCESS
+        // =====================================================
 
         Toast.makeText(
                 this,
-                "Registration successful!",
+                "Account created successfully!",
                 Toast.LENGTH_SHORT
         ).show();
 
 
-        // --------------------------------------------------
-        // CLEAR REGISTER FIELDS
-        // --------------------------------------------------
-
+        // Clear register fields
         registerName.setText("");
-
         registerMobile.setText("");
-
         registerEmail.setText("");
-
         registerPassword.setText("");
 
 
-        // --------------------------------------------------
-        // GO BACK TO LOGIN
-        // --------------------------------------------------
-
-        flipToLogin();
-
-
-        // Put registered name into login
-
+        // Put name into login field
         loginName.setText(name);
 
-        loginPassword.requestFocus();
+
+        // Go back to login
+        flipToLogin();
     }
 
-    // ==================================================
+
+    // =========================================================
     // LOGIN USER
-    // ==================================================
+    // =========================================================
 
     private void loginUser() {
 
-        String name =
-                loginName.getText().toString().trim();
+        String name = loginName.getText()
+                .toString()
+                .trim();
 
-        String password =
-                loginPassword.getText().toString();
+        String password = loginPassword.getText()
+                .toString()
+                .trim();
 
 
-        // --------------------------------------------------
-        // NAME VALIDATION
-        // --------------------------------------------------
+        // =====================================================
+        // VALIDATION
+        // =====================================================
 
         if (TextUtils.isEmpty(name)) {
 
-            loginName.setError(
-                    "Enter your name"
-            );
-
+            loginName.setError("Enter your name");
             loginName.requestFocus();
 
             return;
         }
 
 
-        // --------------------------------------------------
-        // PASSWORD VALIDATION
-        // --------------------------------------------------
-
         if (TextUtils.isEmpty(password)) {
 
             loginPassword.setError(
-                    "Enter password"
+                    "Enter your password"
             );
 
             loginPassword.requestFocus();
@@ -425,20 +417,22 @@ public class MainActivity2 extends AppCompatActivity {
         }
 
 
-        // --------------------------------------------------
-        // HASH PASSWORD
-        // --------------------------------------------------
+        // =====================================================
+        // HASH ENTERED PASSWORD
+        // =====================================================
 
         String hashedPassword =
                 hashPassword(password);
 
 
-        // --------------------------------------------------
-        // CHECK USER
-        // --------------------------------------------------
+        // =====================================================
+        // CHECK DATABASE
+        // =====================================================
 
         Cursor cursor = database.rawQuery(
-                "SELECT * FROM users " +
+
+                "SELECT id, name, carbonFootprint, earnedPoints " +
+                        "FROM users " +
                         "WHERE name = ? AND password = ?",
 
                 new String[]{
@@ -448,37 +442,95 @@ public class MainActivity2 extends AppCompatActivity {
         );
 
 
-        // --------------------------------------------------
+        // =====================================================
         // LOGIN SUCCESS
-        // --------------------------------------------------
+        // =====================================================
 
         if (cursor.moveToFirst()) {
 
+            int userId = cursor.getInt(
+                    cursor.getColumnIndexOrThrow("id")
+            );
+
+            String userName = cursor.getString(
+                    cursor.getColumnIndexOrThrow("name")
+            );
+
+            double carbonFootprint = cursor.getDouble(
+                    cursor.getColumnIndexOrThrow(
+                            "carbonFootprint"
+                    )
+            );
+
+            int earnedPoints = cursor.getInt(
+                    cursor.getColumnIndexOrThrow(
+                            "earnedPoints"
+                    )
+            );
+
+
             cursor.close();
 
-            Toast.makeText(
-                    this,
-                    "Login successful! 🌱",
-                    Toast.LENGTH_SHORT
-            ).show();
 
+            // =================================================
+            // SAVE LOGIN SESSION
+            // =================================================
+
+            getSharedPreferences(
+                    "EcoLoopPrefs",
+                    MODE_PRIVATE
+            )
+                    .edit()
+                    .putBoolean("loggedIn", true)
+                    .putInt("USER_ID", userId)
+                    .putString("USER_NAME", userName)
+                    .putFloat(
+                            "CARBON_FOOTPRINT",
+                            (float) carbonFootprint
+                    )
+                    .putInt(
+                            "EARNED_POINTS",
+                            earnedPoints
+                    )
+                    .apply();
+
+
+            // =================================================
+            // OPEN DASHBOARD
+            // =================================================
 
             Intent intent = new Intent(
                     MainActivity2.this,
                     MainActivity4.class
             );
 
+
+            intent.putExtra(
+                    "USER_ID",
+                    userId
+            );
+
+            intent.putExtra(
+                    "USER_NAME",
+                    userName
+            );
+
+            intent.putExtra(
+                    "CARBON_FOOTPRINT",
+                    carbonFootprint
+            );
+
+            intent.putExtra(
+                    "EARNED_POINTS",
+                    earnedPoints
+            );
+
+
             startActivity(intent);
 
             finish();
-        }
 
-
-        // --------------------------------------------------
-        // LOGIN FAILED
-        // --------------------------------------------------
-
-        else {
+        } else {
 
             cursor.close();
 
@@ -490,65 +542,125 @@ public class MainActivity2 extends AppCompatActivity {
         }
     }
 
-    // ==================================================
+
+    // =========================================================
     // FLIP TO REGISTER
-    // ==================================================
+    // =========================================================
 
     private void flipToRegister() {
 
-        Animation outAnimation =
+        Animation flipOut =
                 AnimationUtils.loadAnimation(
                         this,
                         R.anim.flip_out
                 );
 
-        Animation inAnimation =
+        Animation flipIn =
                 AnimationUtils.loadAnimation(
                         this,
                         R.anim.flip_in
                 );
 
 
-        loginForm.startAnimation(outAnimation);
+        loginForm.startAnimation(flipOut);
 
-        loginForm.setVisibility(View.GONE);
+        flipOut.setAnimationListener(
+                new Animation.AnimationListener() {
 
-        registerForm.setVisibility(View.VISIBLE);
+                    @Override
+                    public void onAnimationStart(
+                            Animation animation) {
+                    }
 
-        registerForm.startAnimation(inAnimation);
+
+                    @Override
+                    public void onAnimationEnd(
+                            Animation animation) {
+
+                        loginForm.setVisibility(
+                                android.view.View.GONE
+                        );
+
+                        registerForm.setVisibility(
+                                android.view.View.VISIBLE
+                        );
+
+                        registerForm.startAnimation(
+                                flipIn
+                        );
+                    }
+
+
+                    @Override
+                    public void onAnimationRepeat(
+                            Animation animation) {
+                    }
+                }
+        );
     }
 
-    // ==================================================
+
+    // =========================================================
     // FLIP TO LOGIN
-    // ==================================================
+    // =========================================================
 
     private void flipToLogin() {
 
-        Animation outAnimation =
+        Animation flipOut =
                 AnimationUtils.loadAnimation(
                         this,
                         R.anim.flip_out
                 );
 
-        Animation inAnimation =
+        Animation flipIn =
                 AnimationUtils.loadAnimation(
                         this,
                         R.anim.flip_in
                 );
 
 
-        registerForm.startAnimation(outAnimation);
+        registerForm.startAnimation(flipOut);
 
-        registerForm.setVisibility(View.GONE);
 
-        loginForm.setVisibility(View.VISIBLE);
+        flipOut.setAnimationListener(
+                new Animation.AnimationListener() {
 
-        loginForm.startAnimation(inAnimation);
+                    @Override
+                    public void onAnimationStart(
+                            Animation animation) {
+                    }
+
+
+                    @Override
+                    public void onAnimationEnd(
+                            Animation animation) {
+
+                        registerForm.setVisibility(
+                                android.view.View.GONE
+                        );
+
+                        loginForm.setVisibility(
+                                android.view.View.VISIBLE
+                        );
+
+                        loginForm.startAnimation(
+                                flipIn
+                        );
+                    }
+
+
+                    @Override
+                    public void onAnimationRepeat(
+                            Animation animation) {
+                    }
+                }
+        );
     }
 
-    // ==================================================
-    // PASSWORD HASH
-    // ==================================================
+
+    // =========================================================
+    // SHA-256 PASSWORD HASH
+    // =========================================================
 
     private String hashPassword(String password) {
 
@@ -557,6 +669,7 @@ public class MainActivity2 extends AppCompatActivity {
             MessageDigest digest =
                     MessageDigest.getInstance("SHA-256");
 
+
             byte[] hash =
                     digest.digest(
                             password.getBytes(
@@ -564,8 +677,10 @@ public class MainActivity2 extends AppCompatActivity {
                             )
                     );
 
+
             StringBuilder hexString =
                     new StringBuilder();
+
 
             for (byte b : hash) {
 
@@ -575,34 +690,38 @@ public class MainActivity2 extends AppCompatActivity {
                         );
 
                 if (hex.length() == 1) {
+
                     hexString.append('0');
                 }
 
                 hexString.append(hex);
             }
 
+
             return hexString.toString();
 
-        } catch (NoSuchAlgorithmException e) {
+        } catch (Exception e) {
 
-            throw new RuntimeException(e);
+            e.printStackTrace();
+
+            return "";
         }
     }
 
-    // ==================================================
+
+    // =========================================================
     // CLOSE DATABASE
-    // ==================================================
+    // =========================================================
 
     @Override
     protected void onDestroy() {
 
-        if (database != null) {
-            database.close();
-        }
-
         super.onDestroy();
 
+        if (database != null &&
+                database.isOpen()) {
+
+            database.close();
+        }
     }
-
 }
-
