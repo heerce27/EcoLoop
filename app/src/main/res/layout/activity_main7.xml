@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#F4FAF5">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+
+        <!-- ================================================= -->
+        <!--                    TOP HEADER                     -->
+        <!-- ================================================= -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <!-- BACK BUTTON -->
+
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:backgroundTint="#DDF2E0"
+                android:contentDescription="Back to Dashboard"
+                android:padding="10dp"
+                android:src="@android:drawable/ic_media_previous" />
+
+
+            <!-- TITLE -->
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:text="♻ Circular Actions"
+                android:textColor="#1B5E20"
+                android:textSize="26sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+
+        <!-- ================================================= -->
+        <!--                     WELCOME                       -->
+        <!-- ================================================= -->
+
+        <TextView
+            android:id="@+id/txtWelcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="Hello User!"
+            android:textColor="#617263"
+            android:textSize="15sp" />
+
+
+        <!-- ================================================= -->
+        <!--                   INTRO CARD                      -->
+        <!-- ================================================= -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:background="#DFF3E2"
+            android:elevation="4dp"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🌱 Keep Products in Use"
+                android:textColor="#1B5E20"
+                android:textSize="19sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Choose circular actions to repair, reuse, donate or recycle products instead of throwing them away."
+                android:textColor="#4F6353"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+
+        <!-- ================================================= -->
+        <!--                 PRODUCT SELECTION                 -->
+        <!-- ================================================= -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="What do you want to manage?"
+            android:textColor="#173D1C"
+            android:textSize="19sp"
+            android:textStyle="bold" />
+
+
+        <Spinner
+            android:id="@+id/spinnerProduct"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="10dp"
+            android:background="#FFFFFF" />
+
+
+        <!-- ================================================= -->
+        <!--                  ACTION SELECTION                 -->
+        <!-- ================================================= -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Choose a circular action"
+            android:textColor="#173D1C"
+            android:textSize="19sp"
+            android:textStyle="bold" />
+
+
+        <Spinner
+            android:id="@+id/spinnerAction"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="10dp"
+            android:background="#FFFFFF" />
+
+
+        <!-- ================================================= -->
+        <!--                  ANALYZE BUTTON                   -->
+        <!-- ================================================= -->
+
+        <Button
+            android:id="@+id/btnAnalyze"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="22dp"
+            android:backgroundTint="#2E7D32"
+            android:text="♻ Get Circular Recommendation"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+
+        <!-- ================================================= -->
+        <!--                  RESULT CARD                      -->
+        <!-- ================================================= -->
+
+        <LinearLayout
+            android:id="@+id/resultCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:background="#FFF8E1"
+            android:elevation="4dp"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:visibility="gone">
+
+            <!-- RESULT TITLE -->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="💡 Recommended Circular Action"
+                android:textColor="#6D4C00"
+                android:textSize="19sp"
+                android:textStyle="bold" />
+
+
+            <!-- ACTION NAME -->
+
+            <TextView
+                android:id="@+id/txtActionTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:textColor="#1B5E20"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+
+            <!-- DESCRIPTION -->
+
+            <TextView
+                android:id="@+id/txtActionDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColor="#665B3A"
+                android:textSize="15sp" />
+
+
+            <!-- CARBON SAVING -->
+
+            <TextView
+                android:id="@+id/txtCarbonSaving"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:textColor="#1B5E20"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+
+            <!-- POINTS -->
+
+            <TextView
+                android:id="@+id/txtPoints"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textColor="#795500"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+
+            <!-- COMPLETE BUTTON -->
+
+            <Button
+                android:id="@+id/btnCompleteAction"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginTop="18dp"
+                android:backgroundTint="#689F38"
+                android:text="✅ Complete Circular Action"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+
+        <!-- ================================================= -->
+        <!--                CIRCULAR ECONOMY                   -->
+        <!-- ================================================= -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="♻ Circular Economy"
+            android:textColor="#173D1C"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Repair → Reuse → Donate → Upcycle → Recycle"
+            android:textColor="#617263"
+            android:textSize="15sp" />
+
+
+        <!-- ================================================= -->
+        <!--                     FOOTER                        -->
+        <!-- ================================================= -->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:text="🌍 Less waste • More reuse • Better future"
+            android:textColor="#718074"
+            android:textSize="13sp" />
+
+    </LinearLayout>
+
+</ScrollView>

@@ -8,10 +8,12 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:padding="24dp">
 
-        <!-- ================= LOGIN FORM ================= -->
+        <!-- ================================================= -->
+        <!--                    LOGIN FORM                     -->
+        <!-- ================================================= -->
 
         <LinearLayout
             android:id="@+id/loginForm"
@@ -23,6 +25,7 @@
             android:orientation="vertical"
             android:padding="28dp">
 
+            <!-- Logo -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -30,6 +33,7 @@
                 android:text="🌱"
                 android:textSize="48sp" />
 
+            <!-- Heading -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -39,6 +43,7 @@
                 android:textSize="28sp"
                 android:textStyle="bold" />
 
+            <!-- Subtitle -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -48,29 +53,35 @@
                 android:textColor="#718074"
                 android:textSize="14sp" />
 
+            <!-- ================= NAME ================= -->
+
             <EditText
-                android:textColor="#000000"
                 android:id="@+id/loginName"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
                 android:layout_marginTop="28dp"
+                android:backgroundTint="#2E7D32"
                 android:hint="Name"
-                android:textColorHint="#008000"
-                android:inputType="text"
-                android:padding="14dp" />
+                android:inputType="textPersonName"
+                android:padding="14dp"
+                android:textColor="#000000"
+                android:textColorHint="#008000" />
+
+            <!-- ================= PASSWORD ================= -->
 
             <EditText
-                android:textColor="#000000"
                 android:id="@+id/loginPassword"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
                 android:layout_marginTop="14dp"
+                android:backgroundTint="#2E7D32"
                 android:hint="Password"
-                android:textColorHint="#008000"
                 android:inputType="textPassword"
-                android:padding="14dp" />
+                android:padding="14dp"
+                android:textColor="#000000"
+                android:textColorHint="#008000" />
 
-
+            <!-- ================= LOGIN BUTTON ================= -->
 
             <Button
                 android:id="@+id/btnLogin"
@@ -83,6 +94,8 @@
                 android:textColor="#FFFFFF"
                 android:textSize="16sp"
                 android:textStyle="bold" />
+
+            <!-- ================= CREATE ACCOUNT ================= -->
 
             <TextView
                 android:layout_width="match_parent"
@@ -98,6 +111,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="7dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:gravity="center"
                 android:text="CREATE ACCOUNT"
                 android:textColor="#2E7D32"
@@ -107,7 +122,9 @@
         </LinearLayout>
 
 
-        <!-- ================= REGISTER FORM ================= -->
+        <!-- ================================================= -->
+        <!--                  REGISTER FORM                    -->
+        <!-- ================================================= -->
 
         <LinearLayout
             android:id="@+id/registerForm"
@@ -120,6 +137,7 @@
             android:padding="28dp"
             android:visibility="gone">
 
+            <!-- Logo -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -127,6 +145,7 @@
                 android:text="🌿"
                 android:textSize="48sp" />
 
+            <!-- Heading -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -136,6 +155,7 @@
                 android:textSize="28sp"
                 android:textStyle="bold" />
 
+            <!-- Subtitle -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -145,51 +165,64 @@
                 android:textColor="#718074"
                 android:textSize="14sp" />
 
+            <!-- ================= NAME ================= -->
+
             <EditText
-                android:textColor="#000000"
                 android:id="@+id/registerName"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
                 android:layout_marginTop="28dp"
+                android:backgroundTint="#2E7D32"
                 android:hint="Name"
-                android:textColorHint="#008000"
                 android:inputType="textPersonName"
-                android:padding="14dp" />
-            <EditText
+                android:padding="14dp"
                 android:textColor="#000000"
+                android:textColorHint="#008000" />
+
+            <!-- ================= EMAIL ================= -->
+
+            <EditText
                 android:id="@+id/registerEmail"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
                 android:layout_marginTop="14dp"
-                android:hint="Enter mail"
-                android:textColorHint="#008000"
+                android:backgroundTint="#2E7D32"
+                android:hint="Email"
                 android:inputType="textEmailAddress"
-                android:padding="14dp" />
+                android:padding="14dp"
+                android:textColor="#000000"
+                android:textColorHint="#008000" />
+
+            <!-- ================= MOBILE ================= -->
 
             <EditText
                 android:id="@+id/registerMobile"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
                 android:layout_marginTop="14dp"
+                android:backgroundTint="#2E7D32"
                 android:hint="Mobile Number"
-                android:textColor="#000000"
-                android:textColorHint="#008000"
                 android:inputType="phone"
                 android:maxLength="10"
-                android:padding="14dp" />
+                android:padding="14dp"
+                android:textColor="#000000"
+                android:textColorHint="#008000" />
+
+            <!-- ================= PASSWORD ================= -->
 
             <EditText
-                android:textColor="#000000"
                 android:id="@+id/registerPassword"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
                 android:layout_marginTop="14dp"
+                android:backgroundTint="#2E7D32"
                 android:hint="Password"
-                android:textColorHint="#008000"
                 android:inputType="textPassword"
-                android:padding="14dp" />
+                android:padding="14dp"
+                android:textColor="#000000"
+                android:textColorHint="#008000" />
 
-
+            <!-- ================= REGISTER BUTTON ================= -->
 
             <Button
                 android:id="@+id/btnRegister"
@@ -202,6 +235,8 @@
                 android:textColor="#FFFFFF"
                 android:textSize="16sp"
                 android:textStyle="bold" />
+
+            <!-- ================= BACK TO LOGIN ================= -->
 
             <TextView
                 android:layout_width="match_parent"
@@ -217,6 +252,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="7dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:gravity="center"
                 android:text="BACK TO LOGIN"
                 android:textColor="#2E7D32"
@@ -228,4 +265,3 @@
     </FrameLayout>
 
 </ScrollView>
-

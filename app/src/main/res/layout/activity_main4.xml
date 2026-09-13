@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
@@ -13,10 +13,14 @@
         android:orientation="vertical"
         android:padding="20dp">
 
-        <!-- HEADER -->
+
+        <!-- ================================================= -->
+        <!--                       HEADER                      -->
+        <!-- ================================================= -->
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="120dp"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
@@ -24,24 +28,38 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="vertical">
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Welcome to"
-                    android:textColor="#657568"
-                    android:textSize="15sp" />
+                    android:text="WELCOME, "
+                    android:textStyle="bold"
+                    android:textSize="22sp"
+                    android:textColor="#1B5E20" />
 
                 <TextView
+                    android:id="@+id/txtUserName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="EcoLoop 🌱"
+                    android:text="User"
                     android:textColor="#1B5E20"
-                    android:textSize="28sp"
+                    android:textSize="26sp"
                     android:textStyle="bold" />
 
             </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/txtUserId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:text="ID: 0"
+                android:textColor="#718074"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
 
             <ImageButton
                 android:id="@+id/btnProfile"
@@ -51,12 +69,15 @@
                 android:contentDescription="Profile"
                 android:padding="12dp"
                 android:src="@android:drawable/ic_menu_myplaces"
-                />
+                android:tint="#1B5E20" />
 
         </LinearLayout>
 
 
-        <!-- CARBON CARD -->
+        <!-- ================================================= -->
+        <!--                CARBON IMPACT CARD                 -->
+        <!-- ================================================= -->
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -75,18 +96,19 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Make small changes. Create a bigger impact."
+                android:text="Track your environmental impact through your daily activities."
                 android:textColor="#4F6353"
                 android:textSize="14sp" />
 
             <TextView
+                android:id="@+id/txtCarbonFootprint"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="14dp"
-                android:text="12.4 kg CO₂"
+                android:text="0.00 kg CO₂"
                 android:textColor="#145A1A"
                 android:textSize="30sp"
                 android:textStyle="bold" />
@@ -94,14 +116,58 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Estimated impact this week"
+                android:text="Your current carbon footprint"
                 android:textColor="#617263"
                 android:textSize="13sp" />
 
         </LinearLayout>
 
 
-        <!-- SECTION TITLE -->
+        <!-- ================================================= -->
+        <!--                    POINTS CARD                    -->
+        <!-- ================================================= -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:background="#FFF8E1"
+            android:elevation="4dp"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🏆 Your Eco Points"
+                android:textColor="#6D4C00"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtEarnedPoints"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="0 Points"
+                android:textColor="#795500"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Earn points by completing eco-friendly activities."
+                android:textColor="#665B3A"
+                android:textSize="13sp" />
+
+        </LinearLayout>
+
+
+        <!-- ================================================= -->
+        <!--                 SECTION TITLE                    -->
+        <!-- ================================================= -->
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -112,130 +178,145 @@
             android:textStyle="bold" />
 
 
-        <!-- ADD ACTIVITY -->
+        <!-- ================================================= -->
+        <!--                   ADD ACTIVITY                   -->
+        <!-- ================================================= -->
+
         <Button
             android:id="@+id/btnAddActivity"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="14dp"
+            android:backgroundTint="#2E7D32"
             android:text="➕  Add Activity"
             android:textAllCaps="false"
             android:textColor="#FFFFFF"
             android:textSize="16sp"
-            android:textStyle="bold"
-            android:backgroundTint="#2E7D32" />
+            android:textStyle="bold" />
 
 
-        <!-- AI ADVISOR -->
+        <!-- ================================================= -->
+        <!--                   AI ADVISOR                     -->
+        <!-- ================================================= -->
+
         <Button
             android:id="@+id/btnAIAdvisor"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="12dp"
+            android:backgroundTint="#388E3C"
             android:text="🤖  AI Carbon Advisor"
             android:textAllCaps="false"
             android:textColor="#FFFFFF"
             android:textSize="16sp"
-            android:textStyle="bold"
-            android:backgroundTint="#388E3C" />
+            android:textStyle="bold" />
 
 
-        <!-- CIRCULAR ACTIONS -->
+        <!-- ================================================= -->
+        <!--                 CIRCULAR ACTIONS                 -->
+        <!-- ================================================= -->
+
         <Button
             android:id="@+id/btnCircular"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="12dp"
+            android:backgroundTint="#43A047"
             android:text="♻  Circular Actions"
             android:textAllCaps="false"
             android:textColor="#FFFFFF"
             android:textSize="16sp"
-            android:textStyle="bold"
-            android:backgroundTint="#43A047" />
+            android:textStyle="bold" />
 
 
-        <!-- BEFORE YOU BUY -->
+        <!-- ================================================= -->
+        <!--                  BEFORE YOU BUY                  -->
+        <!-- ================================================= -->
+
         <Button
             android:id="@+id/btnBeforeBuy"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="12dp"
+            android:backgroundTint="#558B2F"
             android:text="🛒  Before You Buy"
             android:textAllCaps="false"
             android:textColor="#FFFFFF"
             android:textSize="16sp"
-            android:textStyle="bold"
-            android:backgroundTint="#558B2F" />
+            android:textStyle="bold" />
 
 
-        <!-- RECYCLING -->
+        <!-- ================================================= -->
+        <!--                    RECYCLING                    -->
+        <!-- ================================================= -->
+
         <Button
             android:id="@+id/btnRecycling"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="12dp"
+            android:backgroundTint="#689F38"
             android:text="♻  Recycling Map"
             android:textAllCaps="false"
             android:textColor="#FFFFFF"
             android:textSize="16sp"
-            android:textStyle="bold"
-            android:backgroundTint="#689F38" />
+            android:textStyle="bold" />
 
 
-        <!-- CHALLENGES -->
+        <!-- ================================================= -->
+        <!--                    CHALLENGES                   -->
+        <!-- ================================================= -->
+
         <Button
             android:id="@+id/btnChallenges"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="12dp"
+            android:backgroundTint="#7CB342"
             android:text="🏆  Eco Challenges"
             android:textAllCaps="false"
             android:textColor="#FFFFFF"
             android:textSize="16sp"
-            android:textStyle="bold"
-            android:backgroundTint="#7CB342" />
+            android:textStyle="bold" />
 
 
-        <!-- AI RECOMMENDATION -->
+        <!-- ================================================= -->
+        <!--                ECOLOOP GUIDELINES               -->
+        <!-- ================================================= -->
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="26dp"
-            android:background="#FFF8E1"
+            android:layout_marginTop="20dp"
+            android:background="#E8F5E9"
             android:elevation="3dp"
             android:orientation="vertical"
             android:padding="18dp">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="💡 AI Recommendation"
-                android:textColor="#6D4C00"
-                android:textSize="18sp"
+                android:text="📋 EcoLoop Guidelines"
+                android:textColor="#1B5E20"
+                android:textSize="19sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Try using public transport or walking for short trips. It can help reduce your carbon impact."
-                android:textColor="#665B3A"
-                android:textSize="14sp" />
-
-            <Button
-                android:id="@+id/btnAcceptRecommendation"
-                android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:layout_marginTop="12dp"
-                android:text="Accept Recommendation"
-                android:textAllCaps="false"
-                android:textColor="#FFFFFF"
-                android:backgroundTint="#689F38" />
+                android:layout_marginTop="10dp"
+                android:text="Use genuine information and valid proof for all circular activities.&#10;&#10;Carbon footprint and government benefits are estimated/eligibility-based and may vary.&#10;&#10;Follow local recycling rules and use authorized recycling facilities.&#10;&#10;Small actions, when done consistently, create a bigger impact. 🌱♻️"
+                android:textColor="#455A64"
+                android:textSize="14sp"
+                android:lineSpacingExtra="3dp" />
 
         </LinearLayout>
 
 
-        <!-- FOOTER -->
+        <!-- ================================================= -->
+        <!--                       FOOTER                     -->
+        <!-- ================================================= -->
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

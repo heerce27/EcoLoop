@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F1F8F3"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+
+        <!-- ============================= -->
+        <!-- TOP TITLE -->
+        <!-- ============================= -->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Recycle Smart"
+            android:textColor="#164D25"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Give your waste a second life."
+            android:textColor="#66806D"
+            android:textSize="15sp" />
+
+
+        <!-- ============================= -->
+        <!-- USER GREETING -->
+        <!-- ============================= -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:background="#DDF1E1"
+            android:orientation="vertical"
+            android:padding="18dp">
+
+            <TextView
+                android:id="@+id/locationText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="● Location: Ready to detect"
+                android:textColor="#23733A"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+
+        <!-- ============================= -->
+        <!-- SELECT WASTE -->
+        <!-- ============================= -->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="What do you want to recycle?"
+            android:textColor="#164D25"
+            android:textSize="21sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Choose a category and we will suggest a suitable recycling option."
+            android:textColor="#6A756D"
+            android:textSize="14sp" />
+
+
+        <!-- SPINNER CARD -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="#FFFFFF"
+            android:elevation="3dp"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <Spinner
+                android:id="@+id/wasteSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:background="#FFFFFF"
+                android:padding="5dp" />
+
+        </LinearLayout>
+
+
+        <!-- ============================= -->
+        <!-- FIND BUTTON -->
+        <!-- ============================= -->
+
+        <Button
+            android:id="@+id/findButton"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="18dp"
+            android:backgroundTint="#247A3B"
+            android:text="Find Recycling Option"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+
+        <!-- ============================= -->
+        <!-- MAP BUTTON -->
+        <!-- ============================= -->
+
+        <Button
+            android:id="@+id/mapsButton"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="#FFFFFF"
+            android:text="Open Nearby Recycling Places"
+            android:textAllCaps="false"
+            android:textColor="#247A3B"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+
+        <!-- ============================= -->
+        <!-- RESULT -->
+        <!-- ============================= -->
+
+        <LinearLayout
+            android:id="@+id/resultBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:background="#FFFFFF"
+            android:elevation="5dp"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- RESULT TITLE -->
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Recommended Recycling Point"
+                android:textColor="#164D25"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+
+            <!-- CENTER NAME -->
+
+            <TextView
+                android:id="@+id/centerName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Recycling Center"
+                android:textColor="#222222"
+                android:textSize="21sp"
+                android:textStyle="bold" />
+
+
+            <!-- TYPE -->
+
+            <TextView
+                android:id="@+id/centerType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="Facility type"
+                android:textColor="#68736B"
+                android:textSize="14sp" />
+
+
+            <!-- DIVIDER -->
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="18dp"
+                android:background="#E0E8E2" />
+
+
+            <!-- DISTANCE -->
+
+            <TextView
+                android:id="@+id/distanceText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:text="📍 Distance"
+                android:textColor="#405248"
+                android:textSize="16sp" />
+
+
+            <!-- CARBON -->
+
+            <TextView
+                android:id="@+id/savingText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="🌱 Carbon saving"
+                android:textColor="#247A3B"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+
+            <!-- POINTS -->
+
+            <TextView
+                android:id="@+id/pointsText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="+20 Eco Points"
+                android:textColor="#E47A16"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+
+            <!-- DIRECTIONS -->
+
+            <Button
+                android:id="@+id/directionButton"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="#164D25"
+                android:text="Get Directions"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+
+        <!-- ============================= -->
+        <!-- ECO MESSAGE -->
+        <!-- ============================= -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:background="#E4F3E7"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Why recycle?"
+                android:textColor="#164D25"
+                android:textSize="19sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Recycling keeps useful materials in circulation, reduces waste and can lower the environmental impact of producing new materials."
+                android:textColor="#526158"
+                android:textSize="14sp"
+                android:lineSpacingExtra="3dp" />
+
+        </LinearLayout>
+
+
+        <!-- ============================= -->
+        <!-- TIPS -->
+        <!-- ============================= -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:layout_marginBottom="25dp"
+            android:background="#FFF8E5"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Quick Recycling Rules"
+                android:textColor="#735500"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="1. Keep recyclable materials separated.&#10;&#10;2. Keep batteries and e-waste away from normal garbage.&#10;&#10;3. Clean containers before recycling when appropriate.&#10;&#10;4. Donate usable clothes and furniture.&#10;&#10;5. Prefer authorized recycling facilities."
+                android:textColor="#665B3A"
+                android:textSize="14sp"
+                android:lineSpacingExtra="3dp" />
+
+        </LinearLayout>
+
+
+        <!-- FOOTER -->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="EcoLoop • Recycle smarter. Live greener."
+            android:textColor="#568061"
+            android:textSize="13sp"
+            android:layout_marginBottom="15dp" />
+
+    </LinearLayout>
+
+</ScrollView>

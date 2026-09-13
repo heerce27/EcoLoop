@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F2F8F3"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+
+        <!-- ================================= -->
+        <!-- TOP -->
+        <!-- ================================= -->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Eco Challenges"
+            android:textColor="#174E24"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Turn small actions into sustainable habits."
+            android:textColor="#657268"
+            android:textSize="15sp" />
+
+
+        <!-- ================================= -->
+        <!-- PROGRESS CARD -->
+        <!-- ================================= -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:background="#174E24"
+            android:elevation="4dp"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="YOUR PROGRESS"
+                android:textColor="#C8E6C9"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtProgress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:text="0 / 5"
+                android:textColor="#FFFFFF"
+                android:textSize="32sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Start your first eco challenge 🌱"
+                android:textColor="#E0F2E1"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+
+        <!-- ================================= -->
+        <!-- SECTION TITLE -->
+        <!-- ================================= -->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="Choose your challenge"
+            android:textColor="#174E24"
+            android:textSize="21sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Tap any challenge to see its details."
+            android:textColor="#68736B"
+            android:textSize="14sp" />
+
+
+        <!-- ================================= -->
+        <!-- CHALLENGE 1 -->
+        <!-- ================================= -->
+
+        <Button
+            android:id="@+id/btnChallenge1"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="#FFFFFF"
+            android:gravity="center_vertical"
+            android:paddingStart="18dp"
+            android:text="🚶  Walk Instead of Driving"
+            android:textAllCaps="false"
+            android:textColor="#174E24"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+
+        <!-- ================================= -->
+        <!-- CHALLENGE 2 -->
+        <!-- ================================= -->
+
+        <Button
+            android:id="@+id/btnChallenge2"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="#FFFFFF"
+            android:gravity="center_vertical"
+            android:paddingStart="18dp"
+            android:text="🥤  Use a Reusable Bottle"
+            android:textAllCaps="false"
+            android:textColor="#174E24"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+
+        <!-- ================================= -->
+        <!-- CHALLENGE 3 -->
+        <!-- ================================= -->
+
+        <Button
+            android:id="@+id/btnChallenge3"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="#FFFFFF"
+            android:gravity="center_vertical"
+            android:paddingStart="18dp"
+            android:text="💡  Save Electricity"
+            android:textAllCaps="false"
+            android:textColor="#174E24"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+
+        <!-- ================================= -->
+        <!-- CHALLENGE 4 -->
+        <!-- ================================= -->
+
+        <Button
+            android:id="@+id/btnChallenge4"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="#FFFFFF"
+            android:gravity="center_vertical"
+            android:paddingStart="18dp"
+            android:text="♻  Separate Your Waste"
+            android:textAllCaps="false"
+            android:textColor="#174E24"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+
+        <!-- ================================= -->
+        <!-- CHALLENGE 5 -->
+        <!-- ================================= -->
+
+        <Button
+            android:id="@+id/btnChallenge5"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="#FFFFFF"
+            android:gravity="center_vertical"
+            android:paddingStart="18dp"
+            android:text="🛍  Avoid Unnecessary Purchases"
+            android:textAllCaps="false"
+            android:textColor="#174E24"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+
+        <!-- ================================= -->
+        <!-- DETAILS CARD -->
+        <!-- ================================= -->
+
+        <LinearLayout
+            android:id="@+id/detailsCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="#FFFFFF"
+            android:elevation="5dp"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:visibility="gone">
+
+
+            <!-- TITLE -->
+
+            <TextView
+                android:id="@+id/txtChallengeTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Challenge Title"
+                android:textColor="#174E24"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+
+            <!-- DESCRIPTION -->
+
+            <TextView
+                android:id="@+id/txtChallengeDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:text="Challenge description"
+                android:textColor="#424B45"
+                android:textSize="15sp"
+                android:lineSpacingExtra="3dp" />
+
+
+            <!-- CATEGORY -->
+
+            <TextView
+                android:id="@+id/txtChallengeCategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:text="Category"
+                android:textColor="#2E7D32"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+
+            <!-- DURATION -->
+
+            <TextView
+                android:id="@+id/txtChallengeDuration"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="9dp"
+                android:text="Duration"
+                android:textColor="#68736B"
+                android:textSize="14sp" />
+
+
+            <!-- REWARD -->
+
+            <TextView
+                android:id="@+id/txtChallengeReward"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="9dp"
+                android:text="Reward"
+                android:textColor="#D87912"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+
+            <!-- COMPLETE -->
+
+            <Button
+                android:id="@+id/btnComplete"
+                android:layout_width="match_parent"
+                android:layout_height="58dp"
+                android:layout_marginTop="22dp"
+                android:backgroundTint="#247A3B"
+                android:text="Complete This Challenge"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+
+        <!-- ================================= -->
+        <!-- MOTIVATION -->
+        <!-- ================================= -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="#E3F2E6"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🌱 Build the habit"
+                android:textColor="#174E24"
+                android:textSize="19sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="9dp"
+                android:text="You don't need to change everything at once. One small sustainable action repeated regularly can become a meaningful habit."
+                android:textColor="#526158"
+                android:textSize="14sp"
+                android:lineSpacingExtra="3dp" />
+
+        </LinearLayout>
+
+
+        <!-- ================================= -->
+        <!-- FOOTER -->
+        <!-- ================================= -->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:gravity="center"
+            android:text="🌍 One challenge at a time."
+            android:textColor="#438052"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:text="EcoLoop • Small actions. Big impact."
+            android:textColor="#777777"
+            android:textSize="13sp" />
+
+    </LinearLayout>
+
+</ScrollView>
