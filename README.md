@@ -134,9 +134,9 @@ Home / Login
 Login / Registration
       ↓
 Dashboard
- ┌────┼────────┬───────────┬───────────┐
- ↓    ↓        ↓           ↓           ↓
-Add  Eco     Circular   Before You   Recycling
+     ┌────┼────────┬───────────┬───────────┐
+   ↓      ↓        ↓           ↓           ↓
+Add       Eco     Circular   Before You   Recycling
 Activity Advisor  Actions      Buy        Finder
  ↓                                     
 Carbon Calculation
@@ -276,7 +276,7 @@ This version is primarily a local Android prototype/MVP.
 - The Android manifest currently contains a reference to a `.recycling` Activity, while the provided Java source list does not contain `recycling.java`; this should be fixed/verified before release.
 - The uploaded project archive contains generated Gradle/build/IDE files. These should normally not be committed to GitHub.
 
-## 🔮 Future Improvements
+## 🔮 Future Extensions
 
 ### Backend
 - Add a Spring Boot REST API.
@@ -317,18 +317,6 @@ This version is primarily a local Android prototype/MVP.
 - Improve accessibility and screen-reader labels.
 - Add loading/error/empty states.
 - Add charts for carbon trends.
-
-## 📈 Suggested Hackathon Positioning
-
-EcoLoop can be presented as a **personal sustainability companion** rather than only a carbon calculator.
-
-The strongest product story is:
-
-```text
-Measure → Understand → Act → Prove → Earn → Improve
-```
-
-This makes the application more engaging than a simple carbon-footprint calculator because the user is given concrete actions and motivation to continue.
 
 ## 👥 Team
 
