@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity4 extends AppCompatActivity {
 
     private Button btnAddActivity;
+    private Button btnLogout;
     private Button btnAIAdvisor;
     private Button btnCircular;
     private Button btnBeforeBuy;
@@ -44,13 +45,36 @@ public class MainActivity4 extends AppCompatActivity {
         displayUserData();
 
         setupClickListeners();
+        btnLogout = findViewById(R.id.btnLogout);
+
+        btnLogout.setOnClickListener(v -> logoutUser());
     }
 
 
     // =========================================================
     // GET USER DATA
     // =========================================================
+    private void logoutUser() {
 
+        // Login session/preferences clear
+        getSharedPreferences("EcoLoopPrefs", MODE_PRIVATE)
+                .edit()
+                .clear()
+                .apply();
+
+        // Login screen par wapas
+        Intent intent = new Intent(MainActivity4.this, MainActivity.class);
+
+        // Dashboard ko back stack se remove kar do
+        intent.setFlags(
+                Intent.FLAG_ACTIVITY_NEW_TASK |
+                        Intent.FLAG_ACTIVITY_CLEAR_TASK
+        );
+
+        startActivity(intent);
+
+        finish();
+    }
     private void getUserData() {
 
         Intent intent = getIntent();
