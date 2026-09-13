@@ -78,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
         // =====================================================
 
         Button btnLogin = findViewById(R.id.btnLogin);
+        Button adminlogin = findViewById(R.id.Adminlogin);
 
 
         btnLogin.setOnClickListener(v -> {
@@ -85,6 +86,15 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(
                     MainActivity.this,
                     MainActivity2.class
+            );
+
+            startActivity(intent);
+        });
+        adminlogin.setOnClickListener(v -> {
+
+            Intent intent = new Intent(
+                    MainActivity.this,
+                    MainActivity12.class
             );
 
             startActivity(intent);
